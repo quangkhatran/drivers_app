@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../mainScreens/main_screen.dart';
+import '../authentication/login_screen.dart';
 import '../authentication/signup_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (c) => SignUpScreen(),
+          builder: (c) => LoginScreen(),
         ),
       );
     });
