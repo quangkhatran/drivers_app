@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:drivers_app/global/global.dart';
 import 'package:flutter/material.dart';
 
 import '../mainScreens/main_screen.dart';
@@ -15,12 +16,21 @@ class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 3), () async {
       // send user to main screen
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (c) => LoginScreen(),
-        ),
-      );
+      if (await fAuth.currentUser != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (c) => MainScreen(),
+          ),
+        );
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (c) => LoginScreen(),
+          ),
+        );
+      }
     });
   }
 
